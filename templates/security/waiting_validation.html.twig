@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div style="text-align: center; margin-top: 50px;">
+        <h1>Compte en attente</h1>
+        <p>Votre profil est en cours de validation par un modérateur.</p>
+        <a href="{{ path('app_logout') }}">Se déconnecter</a>
+    </div>
+{% endblock %}
