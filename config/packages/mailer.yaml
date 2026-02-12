@@ -1,3 +1,7 @@
 framework:
     mailer:
         dsn: '%env(MAILER_DSN)%'
+        envelope:
+            sender: 'f-test@gmx.fr'
+        headers:
+            From: 'Flazze Mailer Bot <f-test@gmx.fr>'

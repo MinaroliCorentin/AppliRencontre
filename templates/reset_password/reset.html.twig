@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau mot de passe{% endblock %}
+
+{% block body %}
+    <div class="auth-container">
+        <h1 style="color: #ed3692; text-align: center;">Réinitialiser le mot de passe</h1>
+
+        {{ form_start(resetForm) }}
+            <div class="form-group">
+                {{ form_row(resetForm.plainPassword.first, {
+                    'label': 'Nouveau mot de passe',
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_row(resetForm.plainPassword.second, {
+                    'label': 'Confirmer le mot de passe',
+                    'attr': {'class': 'form-control'}
+                }) }}
+            </div>
+
+            <div style="display: flex; justify-content: center; margin-top: 20px;">
+                <button type="submit" class="btn" style="background: #ed3692; color: white; border-radius: 100px; padding: 10px 20px;">
+                    Valider le nouveau mot de passe
+                </button>
+            </div>
+        {{ form_end(resetForm) }}
+    </div>
+{% endblock %}
