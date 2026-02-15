@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notifications{% endblock %}
+
+{% block body %}
+<div class="displayNotifs">
+    <h1>Notifications</h1>
+    {% for notif in notifs %}
+        <h3>Type : {{notif.id}}</h3>
+        <p>Message : {{notif.contenu}}</p>
+        {% else %}
+            <p>Vous n'avez aucune notifications</p>
+    {% endfor %}
+</div>
+{% endblock %}
