@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Email envoyé{% endblock %}
+
+{% block body %}
+    <div class="auth-container" style="text-align: center;">
+        <h1 style="color: #ed3692;">Email envoyé !</h1>
+
+        <p>
+            Si un compte existe avec l'adresse <b>{{ token.user.email ?? 'indiquée' }}</b>,
+            un email vient d'être envoyé contenant un lien pour réinitialiser votre mot de passe.
+        </p>
+
+        <p>Ce lien expirera dans 1h.</p>
+
+        <p style="font-size: 0.9em; color: gray;">
+            Si vous ne recevez pas d'email, vérifiez votre dossier spam ou réessayez.
+        </p>
+
+        <div style="margin-top: 20px;">
+            <a href="{{ path('app_login') }}" class="btn" style="background: #ed3692; color: white; border-radius: 100px; padding: 10px 20px; text-decoration: none;">
+                Retour à la connexion
+            </a>
+        </div>
+    </div>
+{% endblock %}
