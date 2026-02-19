@@ -19,6 +19,6 @@ class HomeController extends AbstractController
             return $this->render('security/waiting_validation.html.twig');
         }
 
-        return $this->render('home/index.html.twig');
+        return $this->render('home/home_page/index.html.twig');
     }
 }
