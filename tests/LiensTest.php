@@ -2,16 +2,16 @@
 
 namespace App\Tests;
 
-use App\Entity\Lienss;
+use App\Entity\Liens;
 use App\Entity\Utilisateur;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class LienssTest extends KernelTestCase
+class LiensTest extends KernelTestCase
 {
     /**
      * Test Minimal : Création avec l'utilisateur et la date obligatoire.
      */
-    public function testCreationLienssMinimale(): void
+    public function testCreationLiensMinimale(): void
     {
         self::bootKernel();
         $entityManager = static::getContainer()->get('doctrine')->getManager();
@@ -21,7 +21,7 @@ class LienssTest extends KernelTestCase
         $entityManager->persist($user);
 
         // 2. Création du lien
-        $lien = new Lienss();
+        $lien = new Liens();
         $lien->setExpDate(new \DateTime('+24 hours'))
              ->setUtilise(false)
              ->setUtilisateur($user);
@@ -36,7 +36,7 @@ class LienssTest extends KernelTestCase
     /**
      * Test Maximal : Vérification complète des dates et de la relation.
      */
-    public function testCreationLienssMaximale(): void
+    public function testCreationLiensMaximale(): void
     {
         self::bootKernel();
         $entityManager = static::getContainer()->get('doctrine')->getManager();
@@ -46,7 +46,7 @@ class LienssTest extends KernelTestCase
 
         $dateExp = new \DateTime('2026-12-31 23:59:59');
 
-        $lien = new Lienss();
+        $lien = new Liens();
         $lien->setExpDate($dateExp)
              ->setUtilise(true)
              ->setUtilisateur($user);
@@ -57,10 +57,10 @@ class LienssTest extends KernelTestCase
         // Vérifications
         $this->assertTrue($lien->isUtilise());
         $this->assertIsBool($lien->isUtilise());
-        
+
         // Vérification de la date
         $this->assertEquals('2026-12-31', $lien->getExpDate()->format('Y-m-d'));
-        
+
         // Vérification de l'appartenance
         $this->assertInstanceOf(Utilisateur::class, $lien->getUtilisateur());
         $this->assertEquals('LienMax', $lien->getUtilisateur()->getPseudo());
