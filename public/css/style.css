@@ -1,4 +1,14 @@
 /* public/css/style.css */
+:root {
+    --back-color1: #fbd3ae;
+    --back-color2: #f3b1c3;
+    --accentuation-color1: ;
+    --accentuation-color2: ;
+    --accentuation-color-yes: ;
+    --accentuation-color-no: ;
+
+}
+
 body {
     /*background-color: #f1c0cd;*/
     background: linear-gradient(to bottom right, #fbd3ae, #f3b1c3);
